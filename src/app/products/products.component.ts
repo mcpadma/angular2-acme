@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from "./products";
+import { ProductService } from "./product.service";
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,7 @@ import { IProduct } from "./products";
 })
 export class ProductsComponent implements OnInit {
   pageTitle: string = "Product List";
+  // products: IProduct[] = [];
   products: IProduct[] = [
     {
         "productId": 1,
@@ -70,10 +72,10 @@ export class ProductsComponent implements OnInit {
   //ends here----------------
   //sample filter -simple
 //   listFilter: string = "cart";
-  constructor() {
+  constructor(private _productService: ProductService) {
       //default values for filter products
-      this.filteredProducts = this.products;
-      this.listFilter = "cart";
+    //   this.filteredProducts = this.products;
+    //   this.listFilter = "cart";
    }
 
 
@@ -93,7 +95,16 @@ performFilter(filterBy: string): IProduct[]{
     return this.products.filter((product: IProduct)=>
     product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
 }
+
+//method of event emitter
+onRatingClicked(message: string): void {
+        this.pageTitle = "Product List: " + message;
+        console.log(this.pageTitle);
+    }
   ngOnInit() {
+      //  this. _productService.getProducts();
+      this.filteredProducts = this.products;
+      this.listFilter = "cart";
   }
 
 }

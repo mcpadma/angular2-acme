@@ -39,7 +39,7 @@
               <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
               <!--<td>{{ product.starRating }}</td>-->
               <td>
-                <app-star [rating] = "product.starRating"></app-star>
+                <app-star [rating] = "product.starRating" (ratingClicked)='onRatingClicked($event)'></app-star>
               </td>
             </tr>
         </tbody>
