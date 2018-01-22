@@ -11,7 +11,7 @@ import { IProduct } from "./products";
 
 @Injectable()
 export class ProductService {
-    private _productUrl = "https://api.myjson.com/bins/18n0op";
+    private _productUrl = "https://api.myjson.com/bins/kppw9";
 
   
   constructor(private _http:Http) { }
