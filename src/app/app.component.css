@@ -1,0 +1,12 @@
+.badge-notify{
+   background:red;
+   position:relative;
+   /*transform: (-200%, -200%);*/
+   -webkit-transform: translate(-65%, -100%);
+   -moz-transform: translate(-65%, -100%); /* For Firefox */
+   -ms-transform: translate(-65%, -100%); /* for IE */
+   -o-transform: translate(-65%, -100%); /* For Opera */
+}
+.cart{
+    font-size: 2em;
+}

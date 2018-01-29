@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Subscription }       from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
-import { ProductService } from "../product.service";
+import { ProductService } from '../product.service';
 import { IProduct } from '../products';
 
 @Component({
@@ -13,21 +13,28 @@ import { IProduct } from '../products';
 })
 export class ProductDetailComponent implements OnInit {
 
-pageTitle: string = "Product Detail";
+pageTitle = 'Product Detail';
 product: IProduct;
 
-  constructor(private _route: ActivatedRoute, private _router:Router,private _productService: ProductService) { 
+  constructor(private _route: ActivatedRoute, private _router: Router, private _productService: ProductService) {
     console.log(this._route.snapshot.paramMap.get('id'));
   }
 
 products: IProduct[];
 errorMessage: string;
+// count=0;
 private sub: Subscription;
+// @Input() count: any ;
+
+
+//  @Output() btnClicked: EventEmitter<string> =
+//         new EventEmitter<string>();
+        
   ngOnInit() {
     // hard coded data
     // let id = +this._route.snapshot.paramMap.get("id");
     // this.pageTitle +=`:${id}`;
-    
+
     // this.product = {
     //   "productId":id,
     //   "productName":"Leaf Rake",
@@ -38,10 +45,10 @@ private sub: Subscription;
     //   "starRating":3.2,
     //   "imageUrl":"http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
     // }
-    
+
     this.sub = this._route.params.subscribe(
             params => {
-                let id = +params['id'];
+                const id = +params['id'];
                 this.getProduct(id);
         });
   }
@@ -50,11 +57,19 @@ private sub: Subscription;
             product => this.product = product,
             error => this.errorMessage = <any>error);
     }
-  onBack(){
+  onBack() {
     this._router.navigate(['/products']);
   }
 
-  onRatingClicked(message: string): void {
-        this.pageTitle = 'Product Detail: ' + message;
-    }
+  // addToCart(){
+  //   this.count = this.count + 1;
+  //   console.log(this.count);
+  // }
+
+  // onClick(){
+  //   console.log(`The rating ${this.addToCart()} was clicked`);
+  //   this.btnClicked.emit(`${this.addToCart()}`)
+  // }
+
+  
 }

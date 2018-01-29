@@ -7,14 +7,14 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
-import { IProduct } from "./products";
+import { IProduct } from './products';
 
 @Injectable()
 export class ProductService {
-    private _productUrl = "https://api.myjson.com/bins/kppw9";
+    private _productUrl = 'https://api.myjson.com/bins/kppw9';
 
-  
-  constructor(private _http:Http) { }
+
+  constructor(private _http: Http) { }
 
   getProducts(): Observable<IProduct[]> {
         return this._http.get(this._productUrl)

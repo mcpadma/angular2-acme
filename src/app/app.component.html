@@ -11,9 +11,13 @@
         <li><a [routerLink] = "['/welcome']">Home</a></li>
         <li><a [routerLink] = "['/products']">Product List</a></li>
       </ul>
+      <ul class = "nav nav-bar navbar-right">
+         <li><a [routerLink] = "['/cart']"><i class = "glyphicon glyphicon-shopping-cart cart"></i>
+         <span class="badge badge-notify">{{pageTitle}}</span></a>  </li>
+      </ul>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <router-outlet ></router-outlet>
   <!--<h1>
     Welcome to {{title}}!
   </h1>

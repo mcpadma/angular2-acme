@@ -1,18 +1,18 @@
-import {Component, ElementRef} from '@angular/core';
+/* import {Component, ElementRef} from '@angular/core';
 
     @Component({
-        selector: 'star-item',
+        selector: 'app-star-item',
         inputs: ['radius', 'type', 'backColor'],
         styles: [`
             canvas.star {
                 float: left;
                 z-index: 1;
-            }       
+            }
         `],
         template: `
-            <canvas 
-                class="star" 
-                height="{{ radius*2 }}" 
+            <canvas
+                class="star"
+                height="{{ radius*2 }}"
                 width="{{ radius*2 }}"></canvas>`
     })
 
@@ -40,7 +40,7 @@ import {Component, ElementRef} from '@angular/core';
             ctx.beginPath();
             ctx.translate(r, r);
             ctx.moveTo(0, 0 - r);
-            for (var i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
                 ctx.rotate(Math.PI / 5);
                 ctx.lineTo(0, 0 - (r * 0.5));
                 ctx.rotate(Math.PI / 5);
@@ -74,10 +74,10 @@ import {Component, ElementRef} from '@angular/core';
         ngOnInit() {
             setTimeout(() => {
                 const el: HTMLCanvasElement = this.root.nativeElement.querySelector('.star');
-                const ctx: CanvasRenderingContext2D = el.getContext("2d");
+                const ctx: CanvasRenderingContext2D = el.getContext('2d');
 
                 this.drawRect(ctx, this.radius * 2, this.backColor);
                 this.drawItem(this.type,  ctx, this.radius);
             });
         }
-    }
+    } */
